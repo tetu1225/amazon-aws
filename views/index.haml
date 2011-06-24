@@ -1,0 +1,15 @@
+!!! 5
+#content
+ %strong= @var
+
+%p
+ これはPタグ
+ 
+%div{:id => "aaa", :class => "bbb"}
+ IDとかクラスも指定できるよ
+
+%a{:href => 'http://yahoo.com', :target => "_blank"} 
+ %h1 Yahooへ
+
+%h1{:id => @var}
+ 変数も使える。
