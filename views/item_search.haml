@@ -1,5 +1,10 @@
-- if !@items.nil?
- - @items.each do |item|
-  %p= item
-- else
- %p= "検索結果がありません。"
+%html
+ %head
+  %title Amazon AAWS
+  %link{:rel => "stylesheet", :type => "text/css", :href => "./views/stylesheet.css"}
+ %body
+  - if !@items.nil?
+   - @items.each do |item|
+    %p= item.item_attributes.title
+  - else
+   %p{:id => "main"}= "検索結果がありません。"
