@@ -1,10 +1,10 @@
 %html
  %head
   %title Amazon AAWS
-  %link{:rel => "stylesheet", :type => "text/css", :href => "./views/stylesheet.css"}
  %body
   - if !@items.nil?
    - @items.each do |item|
-    %p= item.item_attributes.title
+    %p
+     %a{:href => "#{item.detail_page_url}", :target => "_blank"}= item.item_attributes.title
   - else
    %p{:id => "main"}= "検索結果がありません。"
