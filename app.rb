@@ -14,7 +14,7 @@ end
 
 get '/item_search/:keywords' do
 	is = ItemSearch.new('Books', {'Keywords' => params[:keywords]})
-	is.response_group = ResponseGroup.new('Small')
+	is.response_group = ResponseGroup.new('Medium')
 	
 	req = Request.new
 	req.locale = 'jp'

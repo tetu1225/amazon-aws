@@ -1,10 +1,30 @@
+!!! 5
 %html
  %head
-  %title Amazon AAWS
+  %title Amazon aaws
+  :css
+   div{
+    border: 1px dashed;
+   	color: #444444;
+   	width: 450px;
+   	margin: 10px;
+   	padding: 10px;
+   }
  %body
   - if !@items.nil?
    - @items.each do |item|
-    %p
-     %a{:href => "#{item.detail_page_url}", :target => "_blank"}= item.item_attributes.title
+    %div
+     -# 商品画像
+     %img{:src => "#{item.small_image.url}"}
+     %br
+     -# ページリンクとタイトル
+     %p
+      %a{:href => "#{item.detail_page_url}", :target => "_blank"}= item.item_attributes.title
+     -# 価格
+     - price = item.item_attributes.list_price
+     - if price
+      %p= price.formatted_price
+     - else
+      %p= "Amazonでの在庫無し"
   - else
    %p{:id => "main"}= "検索結果がありません。"
